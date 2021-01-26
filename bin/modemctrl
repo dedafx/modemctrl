@@ -4,7 +4,7 @@ import sys
 from dedafx import modemctrl
 
 def main(force=False):
-    if modemctrl.isConnectionSlow() or force:
+    if force or modemctrl.isConnectionSlow():
         modemctrl.reboot()
 
 if __name__ == '__main__':
