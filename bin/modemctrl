@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+import sys
 from dedafx import modemctrl
-if modemctrl.isConnectionSlow():
-    modemctrl.reboot()
+
+def main(force=False):
+    if modemctrl.isConnectionSlow():
+        modemctrl.reboot()
+
+if __name__ == '__main__':
+    force=False
+    if '--force' in sys.argv:
+        force = True
+    main(force=force)
