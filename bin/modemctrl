@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+
+from dedafx import modemctrl
+if modemctrl.isConnectionSlow():
+    modemctrl.reboot()
