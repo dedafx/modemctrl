@@ -3,7 +3,7 @@ import gpiozero
 
 
 RELAY_PIN = 23
-INVERT_PIN = False
+INVERT_PIN = True
 TIME_OFF = 30.0
 
 
