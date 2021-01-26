@@ -9,7 +9,7 @@ TIME_OFF = 30.0
 
 def turnModemOn(pin=RELAY_PIN, invertPin=INVERT_PIN):
     """Turn the modem on."""
-    pin = gpiozero.LED(relayPin)
+    pin = gpiozero.LED(pin)
     if not invertPin:
         pin.on()
     else:
@@ -18,7 +18,7 @@ def turnModemOn(pin=RELAY_PIN, invertPin=INVERT_PIN):
 
 def turnModemOff(pin=RELAY_PIN, invertPin=INVERT_PIN):
     """Turn the modem off."""
-    pin = gpiozero.LED(relayPin)
+    pin = gpiozero.LED(pin)
     if not invertPin:
         pin.off()
     else:
