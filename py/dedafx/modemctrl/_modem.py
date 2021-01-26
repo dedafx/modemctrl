@@ -5,7 +5,7 @@ import gpiozero
 RELAY_PIN = 23
 INVERT_PIN = True
 TIME_OFF = 30.0
-pin = gpiozero.LED(pin)
+pin = gpiozero.LED(RELAY_PIN)
 
 
 def turnModemOn(invertPin=INVERT_PIN):
