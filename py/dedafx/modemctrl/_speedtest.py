@@ -14,11 +14,13 @@ def setSpeedTreshold(threshold):
     SPEED_THRESHOLD = threshold
 
 
-def isConnectionSlow(threshold=SPEED_THRESHOLD):
+def isConnectionSlow(threshold=SPEED_THRESHOLD, downloadSpeed=None):
     """
     Return true|false if the connection is slower than the given threshold.
     """
-    return getDownloadSpeed() < threshold
+    if downloadSpeed is None:
+        downloadSpeed = getDownloadSpeed()
+    return downloadSpeed < threshold
 
 
 def getDownloadSpeed():
@@ -27,4 +29,3 @@ def getDownloadSpeed():
     """
     st = speedtest.Speedtest()
     return st.download()
-    

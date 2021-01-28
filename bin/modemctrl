@@ -1,11 +1,28 @@
 #!/usr/bin/env python3
 
 import sys
+import logging
+
 from dedafx import modemctrl
 
+
 def main(force=False):
-    if force or modemctrl.isConnectionSlow():
-        modemctrl.reboot()
+
+    logging.basicConfig(format='%(asctime)s %(message)s',
+                        datefmt='%m/%d/%Y %I:%M:%S %p',
+                        filename='~/modemctrl.log',
+                        level=logging.INFO)
+
+    if force:
+        logging.info('Rebooting modem (force=True) ...')
+        return modemctrl.reboot()
+
+    downloadSpeed = modemctrl.getDownloadSpeed()
+    logging.info('Download speed is: {0}'.format(downloadSpeed))
+    if modemctrl.isConnectionSlow(downloadSpeed=downloadSpeed):
+        logging.info('Rebooting modem...')
+        return modemctrl.reboot()
+
 
 if __name__ == '__main__':
     force=False
