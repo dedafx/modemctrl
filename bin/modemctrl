@@ -19,7 +19,7 @@ def main(force=False):
         return modemctrl.reboot()
 
     downloadSpeed = modemctrl.getDownloadSpeed()
-    logging.info('Download speed is: {0}'.format(downloadSpeed))
+    logging.info('Download speed is: {0} Mbit/s'.format(downloadSpeed / 1024.0 / 1024.0))
     if modemctrl.isConnectionSlow(downloadSpeed=downloadSpeed):
         logging.info('Rebooting modem...')
         return modemctrl.reboot()
