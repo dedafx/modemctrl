@@ -1,14 +1,10 @@
 [Unit]
-Description=My service
-After=network.target
+Description=Modem Rebooter
+After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/python3 -u /home/pi/modemctrl/py/dedafx/modemctrl/_service.py
-WorkingDirectory=/home/pi
-StandardOutput=inherit
-StandardError=inherit
-Restart=on-failure
-User=pi
+ExecStart=/usr/bin/python3 /home/pi/modemctrl/py/dedafx/modemctrl/_service.py
+Type=idle
 
 [Install]
 WantedBy=multi-user.target
