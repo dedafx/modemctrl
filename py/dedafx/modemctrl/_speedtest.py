@@ -1,4 +1,4 @@
-__all__ = ['setSpeedTreshold', 'isConnectionSlow']
+__all__ = ['setSpeedTreshold', 'isConnectionSlow', 'getDownloadSpeed']
 
 import speedtest
 
