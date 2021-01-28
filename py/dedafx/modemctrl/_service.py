@@ -20,7 +20,7 @@ def main():
         now = datetime.datetime.now()
         # run every hour if we have already run once
         if lastrun is not None and now.minute != 0:
-            time.sleep(5)
+            time.sleep(30)
             continue
 
         lastrun = time.time()

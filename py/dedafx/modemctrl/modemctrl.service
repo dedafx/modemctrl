@@ -7,7 +7,7 @@ ExecStart=/usr/bin/python3 -u /home/pi/modemctrl/py/dedafx/modemctrl/_service.py
 WorkingDirectory=/home/pi
 StandardOutput=inherit
 StandardError=inherit
-Restart=always
+Restart=on-failure
 User=pi
 
 [Install]
