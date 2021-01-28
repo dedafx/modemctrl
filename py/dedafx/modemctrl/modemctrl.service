@@ -3,8 +3,8 @@ Description=My service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 -u _service.py
-WorkingDirectory=/home/pi/modemctrl/py/dedafx/modemctrl
+ExecStart=/usr/bin/python3 -u /home/pi/modemctrl/py/dedafx/modemctrl/_service.py
+WorkingDirectory=/home/pi
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
