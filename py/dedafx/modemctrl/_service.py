@@ -3,7 +3,7 @@ import logging
 import time
 import datetime
 
-from dedafx import modemctrl
+import _modem
 
 
 
@@ -32,18 +32,18 @@ def main():
         # if 5am, force a modem reboot
         if now.hour == 5:
             logging.info('Rebooting modem (force=True) ...')
-            modemctrl.reboot()
+            _modem.reboot()
             continue
 
         try:
-            downloadSpeed = modemctrl.getDownloadSpeed()
+            downloadSpeed = _modem.getDownloadSpeed()
         except Exception:
             # speedtest.ConfigRetrievalError -- no network connection
             continue
         logging.info('Download speed is: {0:.2f} Mbit/s'.format(downloadSpeed / 1024.0 / 1024.0))
-        if modemctrl.isConnectionSlow(downloadSpeed=downloadSpeed):
+        if _modem.isConnectionSlow(downloadSpeed=downloadSpeed):
             logging.info('Rebooting modem...')
-            modemctrl.reboot()
+            _modem.reboot()
             continue
 
 
