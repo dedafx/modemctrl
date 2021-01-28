@@ -3,7 +3,7 @@ Description=Modem Rebooter
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pi/modemctrl/py/dedafx/modemctrl/_service.py
+ExecStart=/usr/bin/python3 /home/pi/modemctrl/py/dedafx/modemctrl/_service.py > /home/pi/service.log 2>&1
 Type=idle
 
 [Install]
