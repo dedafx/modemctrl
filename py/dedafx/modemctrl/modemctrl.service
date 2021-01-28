@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/python3 -u _service.py
-WorkingDirectory=/home/pi/modemctrl
+WorkingDirectory=/home/pi/modemctrl/py/dedafx/modemctrl
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
