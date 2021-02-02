@@ -18,11 +18,17 @@ def main(force=False):
         logging.info('Rebooting modem (force=True) ...')
         return modemctrl.reboot()
 
+    filename = os.path.expanduser('~/modemctrl_speedtest.count')
     downloadSpeed = modemctrl.getDownloadSpeed()
     logging.info('Download speed is: {0:.2f} Mbit/s'.format(downloadSpeed / 1024.0 / 1024.0))
     if modemctrl.isConnectionSlow(downloadSpeed=downloadSpeed):
-        logging.info('Rebooting modem...')
-        return modemctrl.reboot()
+        if os.path.isfile(filename):
+            os.remove(filename)
+            logging.info('Rebooting modem...')
+            return modemctrl.reboot()
+        else:
+            with open(filename, 'w') as f:
+                f.write('1')
 
 
 if __name__ == '__main__':
